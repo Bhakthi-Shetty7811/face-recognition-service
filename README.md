@@ -1,4 +1,3 @@
-```markdown
 # 🧠 Face Recognition Service (FRS)
 
 An end-to-end **Face Detection and Recognition Microservice** built using **FastAPI + ONNXRuntime + OpenCV**.  
@@ -190,3 +189,4 @@ Visit: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## 👤 Author
 **Bhakthi Shetty**
+🧩 Contact: [LinkedIn](https://www.linkedin.com/in/bhakthi-shetty-743a33357) | [GitHub](https://github.com/Bhakthi-Shetty7811)
