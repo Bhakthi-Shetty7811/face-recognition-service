@@ -1,0 +1,51 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# OS / IDE stuff
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.tmp
+
+# Database & local data
+*.db
+*.sqlite3
+data/gallery.db
+data/lfw_test/
+data/gallery_images/
+
+# Model weights / large binaries
+weights/
+*.onnx
+*.pt
+
+# Test / sample media
+sample.jpg
+test_images/
+samples/
+outputs/
+
+# Temporary scripts (optional utilities)
+scripts/demo_test_api.py
+scripts/download_gallery_dataset.py
+
+# Docker / build cache
+*.pid
+*.sock
+*.pid.lock
+/build/
+dist/
+*.egg-info/
+
+# Jupyter / reports
+*.ipynb_checkpoints/
+
