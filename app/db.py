@@ -2,6 +2,7 @@ from psycopg2.pool import SimpleConnectionPool
 import numpy as np
 import logging
 from .config import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD, DB_PORT
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -10,13 +11,12 @@ class DB:
     def __init__(self):
 
         self.pool = SimpleConnectionPool(
-            1,
-            10,
-            host=DB_HOST,
-            database=DB_NAME,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            port=DB_PORT
+            1, 10,
+            host=os.getenv("DB_HOST"),
+            database=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            sslmode="require"  
         )
 
         self.create_tables()

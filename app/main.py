@@ -11,6 +11,7 @@ import io
 from fastapi import HTTPException
 from .utils import read_image_from_bytes
 import logging
+import os
 import redis
 import hashlib
 import json
@@ -20,7 +21,10 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from fastapi import Request
 
-cache = redis.Redis(host="localhost", port=6379, db=0)
+redis_client = redis.from_url(
+    os.getenv("REDIS_URL"),
+    decode_responses=True
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -137,3 +141,7 @@ def list_identities():
         "success": True,
         "identities": db.list_identities()
     }
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
