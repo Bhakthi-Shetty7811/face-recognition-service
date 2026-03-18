@@ -4,7 +4,6 @@ from app.embedder import Embedder
 model = Embedder("weights/arcface_resnet100.onnx")
 img = cv2.imread("sample.jpg")
 img = cv2.resize(img, (112,112))
-
 # Warm-up
 for _ in range(5):
     model.get_embedding(img)

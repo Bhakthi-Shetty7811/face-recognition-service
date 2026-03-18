@@ -1,13 +1,12 @@
-import cv2
+from insightface.app import FaceAnalysis
 
 class Detector:
+
     def __init__(self):
-        self.detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        self.app = FaceAnalysis(name="buffalo_l")
+        self.app.prepare(ctx_id=0)
 
     def detect(self, image):
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        faces = self.detector.detectMultiScale(gray, 1.1, 4)
-        boxes = []
-        for (x, y, w, h) in faces:
-            boxes.append([x, y, x+w, y+h])
+        faces = self.app.get(image)
+        boxes = [f.bbox.astype(int).tolist() for f in faces]
         return boxes

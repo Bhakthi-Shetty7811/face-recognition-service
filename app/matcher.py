@@ -5,7 +5,9 @@ class Matcher:
         self.db = db
 
     def cosine_similarity(self, a, b):
-        return np.dot(a, b.T)
+        a = a / np.linalg.norm(a)
+        b = b / np.linalg.norm(b, axis=1, keepdims=True)
+        return np.dot(b, a)
 
     def search(self, emb, top_k=1):
         names, embs = self.db.get_all_embeddings()
