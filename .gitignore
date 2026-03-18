@@ -19,14 +19,8 @@ Thumbs.db
 # Database & local data
 *.db
 *.sqlite3
-data/gallery.db
-data/lfw_test/
-data/gallery_images/
+data-ex/
 
-# Model weights / large binaries
-weights/
-*.onnx
-*.pt
 
 # Test / sample media
 sample.jpg
