@@ -77,7 +77,7 @@ async def recognize(request: Request, file: UploadFile = File(...), top_k: int =
     logger.info("Recognition request received")
     img_bytes = await file.read()
     hash_key = hashlib.md5(img_bytes).hexdigest()
-    cached = cache.get(hash_key)
+    cached = redis_client.get(hash_key)
     if cached:
         logger.info("Cache hit for image")
         return json.loads(cached)
@@ -108,7 +108,7 @@ async def recognize(request: Request, file: UploadFile = File(...), top_k: int =
         "success": True,
         "data": {"results": results}
     }
-    cache.set(hash_key, json.dumps(response), ex=60)
+    redis_client.set(hash_key, json.dumps(response), ex=60)
     logger.info("Response cached")
     return response
 
