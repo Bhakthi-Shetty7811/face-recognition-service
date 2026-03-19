@@ -3,7 +3,7 @@ from insightface.app import FaceAnalysis
 class Detector:
 
     def __init__(self):
-        self.app = FaceAnalysis(name="buffalo_s")
+        self.app = FaceAnalysis(name="buffalo_sc")
         self.app.prepare(ctx_id=0)
 
     def detect(self, image):
