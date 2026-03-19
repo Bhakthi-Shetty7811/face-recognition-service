@@ -46,12 +46,14 @@ matcher = None
 def load_models():
     global detector, embedder, db, matcher
 
+    logger.info("Loading models...")
+
+    embedder = Embedder() 
     detector = Detector()
-    embedder = Embedder("weights/arcface_resnet100.onnx")
     db = DB()
     matcher = Matcher(db)
 
-    logger.info("Models loaded successfully")
+    logger.info("All models loaded successfully")
 
 @app.post("/detect")
 async def detect(file: UploadFile = File(...)):

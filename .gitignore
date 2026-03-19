@@ -21,6 +21,8 @@ Thumbs.db
 *.sqlite3
 data-ex/
 
+weights/
+*.onnx
 
 # Test / sample media
 sample.jpg
